@@ -10,8 +10,8 @@ class HeroRepository {
 
 	async find(itemId) {
 		const all = await this._currentFileContent()
-		if (itemId) return all
-		
+		if (!itemId) return all
+	
 		return all.find(({id}) => itemId === id)
 	}
 
