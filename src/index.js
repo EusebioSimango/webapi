@@ -44,6 +44,11 @@ const handler = (request, response) => {
 
 	const key = `/${route}:${method.toLowerCase()}`
 
+
+	response.setHeader('Access-Control-Allow-Origin', '*');
+	response.setHeader('Access-Control-Request-Method', '*');
+	response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+	response.setHeader('Access-Control-Allow-Headers', '*');
 	response.writeHead(200, DEFAULT_HEADER)
 
 	const chosen = routes[key] || routes.default
