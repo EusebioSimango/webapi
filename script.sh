@@ -10,9 +10,13 @@ curl --silent -X POST \
 	localhost:3000/heroes
 
 echo '\n\n Creating Flash'
-curl --silent -X POST \
+CREATE=$(curl --silent -X POST \
 	--data-binary '{"name": "Flash", "age": 100, "power": "The speed of ligth"}' \
-	localhost:3000/heroes
+	localhost:3000/heroes)
 
+echo CREATE
 
-echo '\n'
+ID=$(echo $CREATE | jq.id)
+
+echo '\n\n requesting Flash'
+curl localhost:3000/heroes/$ID
