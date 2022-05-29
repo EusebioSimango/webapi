@@ -12,7 +12,7 @@ const routes = {
 		const {
 			id
 		} = request.queryString
-		// await Promise.reject('/heroes:get')
+		// await Promise.reject('/heroes:get'
 		const heroes = await heroService.find(id)
 		response.write(JSON.stringify({
 			results: heroes
@@ -29,6 +29,7 @@ const routes = {
 					error,
 					valid
 				} = hero.isValid()
+
 				if (!valid) {
 					response.writeHead(400, DEFAULT_HEADER)
 					response.write(JSON.stringify({
